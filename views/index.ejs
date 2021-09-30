@@ -16,17 +16,29 @@
 
     <%- include('navbar.ejs') %>
 
-        <% messages.forEach(msg=> { %>
-            <h4>
-                <%= msg.user %> :
-            </h4>
-            <p>
-                <%= msg.text %>
-            </p>
-            <h5> Sent : <%= msg.added.toLocaleString() %>
-            </h5>
+        <div class="container">
 
-            <% }) %>
+            <% messages.forEach(msg=> { %>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            <%= msg.user %> :
+                        </h5>
+                        <p class="card-text">
+                            <%= msg.text %>
+                        </p>
+                        <h6 class="card-subtitle mb-1 text-muted ">
+                            Sent : <%= msg.added.toLocaleString() %>
+                        </h6>
+
+
+                    </div>
+                </div>
+
+                <% }) %>
+        </div>
 </body>
 
 </html>
