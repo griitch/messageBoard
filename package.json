@@ -1,0 +1,17 @@
+{
+  "name": "message-board",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^6.0.6",
+    "morgan": "~1.9.1"
+  }
+}
