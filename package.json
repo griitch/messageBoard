@@ -5,6 +5,9 @@
   "scripts": {
     "start": "nodemon app"
   },
+  "engines": {
+    "node": "14.16.1"
+  },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "dotenv": "^10.0.0",
