@@ -3,18 +3,23 @@ const router = express.Router();
 
 const messages = [
   {
-    text: "hello world",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     user: "john doe",
     added: new Date(),
   },
   {
-    text: "Hello World!",
-    user: "Charles",
+    text: "Dolores esse ducimus nostrum quisquam iure ullam",
+    user: "Bob",
     added: new Date(),
   },
   {
-    text: "lorem ipsum!",
-    user: "harit",
+    text: "doloribus asperiores nisi aperiam eaque alias dolore pariatur",
+    user: "Eve",
+    added: new Date(),
+  },
+  {
+    text: "Nemo alias at quis modi. Illum, iste!",
+    user: "Alice",
     added: new Date(),
   },
 ];
