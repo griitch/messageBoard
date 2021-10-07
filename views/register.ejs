@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("head") %>
+
+<body>
+
+    <%- include('navbar.ejs') %>
+    <div class="container ">
+
+        <form method="post">
+            <div class="row">
+                <h2 class="mb-4">Create an account</h2>
+            </div>
+
+            <% if (error) { %>
+            <div class="row" id="passwordsdontmatch">
+                <div class="col-sm-6 offset-2">
+                    <span class="text-danger"><%= error %> </span>
+                </div>
+            </div>
+            <% } %>
+
+
+            <div class="row my-1">
+                <label class="col-form-label col-sm-2 text-center " for="username">Username :</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" name="username" id="user">
+                </div>
+            </div>
+
+            <div class="row my-3">
+                <label class="col-form-label col-sm-2 text-center  " for="password">Password :</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="password" name="password" id="password">
+                </div>
+            </div>
+            <div class="row my-3">
+                <label class="col-form-label col-sm-2 text-center" for="passwordConf">Confirm password :</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="password" name="passwordConf" id="passwordConf">
+                </div>
+            </div>
+            <div style="display: none;" class="row" id="passwordsdontmatch">
+                <div class="col-sm-6 offset-2">
+                    <span class="text-danger">The passwords don't match !!</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-5">
+                    <button class="btn btn-primary btn-lg mt-3" type="submit">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const password = document.getElementById("password");
+    const confimation = document.getElementById("passwordConf");
+    const dontMatch = document.getElementById("passwordsdontmatch");
+
+    function verifyMatching() {
+        dontMatch.style.display = password.value == confimation.value ? "none" : "block";
+    }
+
+    password.addEventListener("input", verifyMatching);
+    confimation.addEventListener("input", verifyMatching);
+
+</script>
