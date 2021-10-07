@@ -6,12 +6,17 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const strategy = require("./localstrategy");
-const port = process.env.PORT || 8000;
+
 const indexRouter = require("./routes/index");
+const registerRouter = require("./routes/register");
+const logoutRouter = require("./routes/logout");
+const loginRouter = require("./routes/login");
+
 const User = require("./models/user");
 
 const app = express();
 
+const port = process.env.PORT || 8000;
 const mongoDb = process.env.mongoDb;
 
 // uasing the same db connection for the app and for the session store
@@ -59,11 +64,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
+// making the currentUser available for all views
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 // routing
 app.use("/", indexRouter);
+app.use("/register", registerRouter);
+app.use("/log-in", loginRouter);
+app.use("/logout", logoutRouter);
 
 // catching 404
 app.use(function (req, res) {
+  // console.log(req._passport.instance.authenticate === passport.authenticate); >> true
   res.send("<h2>404 not found</h2>");
   // change this a proper 404 view
 });

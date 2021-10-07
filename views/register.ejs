@@ -23,22 +23,22 @@
 
 
             <div class="row my-1">
-                <label class="col-form-label col-sm-2 text-center " for="username">Username :</label>
+                <label class="col-form-label col-sm-2 " for="username">Username :</label>
                 <div class="col-sm-6">
-                    <input class="form-control" type="text" name="username" id="user">
+                    <input required class="form-control" type="text" name="username" id="user">
                 </div>
             </div>
 
             <div class="row my-3">
-                <label class="col-form-label col-sm-2 text-center  " for="password">Password :</label>
+                <label class="col-form-label col-sm-2  " for="password">Password :</label>
                 <div class="col-sm-6">
-                    <input class="form-control" type="password" name="password" id="password">
+                    <input required class="form-control" type="password" name="password" id="password">
                 </div>
             </div>
             <div class="row my-3">
-                <label class="col-form-label col-sm-2 text-center" for="passwordConf">Confirm password :</label>
+                <label class="col-form-label col-sm-2 " for="passwordConf">Confirm password :</label>
                 <div class="col-sm-6">
-                    <input class="form-control" type="password" name="passwordConf" id="passwordConf">
+                    <input required class="form-control" type="password" name="passwordConf" id="passwordConf">
                 </div>
             </div>
             <div style="display: none;" class="row" id="passwordsdontmatch">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4 offset-5">
+                <div class="col">
                     <button class="btn btn-primary btn-lg mt-3" type="submit">Register</button>
                 </div>
             </div>
