@@ -27,8 +27,7 @@ Router.post("/", async (req, res) => {
         passwordHash: hash,
       });
       await newuser.save();
-      res.redirect("/");
-      // change this later to res.redirect(login)
+      res.redirect("/log-in");
     }
   } catch (err) {
     console.log(err);
