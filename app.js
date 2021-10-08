@@ -85,4 +85,9 @@ app.use(function (req, res) {
   // change this a proper 404 view
 });
 
+// catching errors
+app.use(function (err, req, res, next) {
+  res.status(500).send("Something broke!");
+});
+
 app.listen(port, () => console.log(`server listening on port : ${port}`));
