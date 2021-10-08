@@ -11,6 +11,7 @@ const indexRouter = require("./routes/index");
 const registerRouter = require("./routes/register");
 const logoutRouter = require("./routes/logout");
 const loginRouter = require("./routes/login");
+const sendmessageRouter = require("./routes/sendmessage");
 
 const User = require("./models/user");
 
@@ -75,6 +76,7 @@ app.use("/", indexRouter);
 app.use("/register", registerRouter);
 app.use("/log-in", loginRouter);
 app.use("/logout", logoutRouter);
+app.use("/sendmessage", sendmessageRouter);
 
 // catching 404
 app.use(function (req, res) {

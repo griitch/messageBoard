@@ -8,8 +8,45 @@
     <%- include('navbar.ejs') %>
 
     <div class="container mb-5">
+        <% if (currentUser) { %>
 
-        <p>foo baz tar</p>
+
+        <% messages.forEach(msg=> { %>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= msg.user.username %> :
+                </h5>
+                <p class="card-text">
+                    <%= msg.message %>
+                </p>
+                <h6 class="card-subtitle mb-1 text-muted ">
+                    Sent : <%= msg.sent_at %>
+                </h6>
+            </div>
+        </div>
+        <% }) %>
+
+        <% } else {%>
+        <p>
+            Login to be able to send messages and to see the usernames of the users.
+        </p>
+
+        <% messages.forEach(msg=> { %>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Anonymous website user :
+                </h5>
+                <p class="card-text">
+                    <%= msg.message %>
+                </p>
+                <h6 class="card-subtitle mb-1 text-muted ">
+                    Sent : <%= msg.sent_at %>
+                </h6>
+            </div>
+        </div>
+        <% }) }%>
     </div>
 </body>
 

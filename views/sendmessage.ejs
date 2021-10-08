@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("head") %>
+
+<body>
+
+    <%- include('navbar.ejs') %>
+    <div class="container ">
+
+        <form method="post">
+
+            <h2 class="mb-4">Send a message</h2>
+            <p class="text-muted">Maximum length : 150 characters</p>
+            <textarea maxlength="150" name="message" id="message" class="form-control" rows="3"></textarea>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <button id="submitbutton" class="btn btn-primary btn-lg mt-3" type="submit">Submit</button>
+                </div>
+            </div>
+            <p class="text-muted mt-2">Number of characters left <span id="number">150</span> </p>
+        </form>
+    </div>
+
+</body>
+<script>
+    const number = document.getElementById("number");
+    const submitbutton = document.getElementById("submitbutton");
+
+    document.querySelector("textarea").addEventListener("input", (e) => {
+        number.innerText = 150 - e.target.value.length;
+
+        if (number.innerText <= 0) {
+            submitbutton.disabled = true;
+            number.classList.add("text-danger")
+        } else {
+            number.classList.remove("text-danger")
+            submitbutton.disabled = false;
+        }
+    })
+
+</script>
+
+
+</html>
